@@ -1,24 +1,50 @@
 /**
  * @author joonghyeon.kim
  */
+// 파일 수준 변수
+const val MAX_EXPERIENCE: Int = 5000
 
 fun main(args: Array<String>) {
+    // 지역 변수
     val name = "Madrigal"
     var healthPoints = 89
     val isBlessed = true
     val isImmortal = false
     val race = "gnome"
 
-    val faction = when (race) {
+    // faction
+    val faction = faction(race)
+
+    // aura
+    val auraColor = auraColor(isBlessed, healthPoints, isImmortal)
+    val healthStatus = formatHealthStatus(healthPoints, isBlessed)
+
+    printPlayerStatus(healthPoints, auraColor, isBlessed, name, healthStatus, faction)
+}
+
+private fun faction(race: String): String {
+    return when (race) {
         "dwarf" -> "Keepers of the Mines"
         "gnome" -> "Keepers of the Mines"
         "orc" -> "Free People of the Rolling Hills"
         "human" -> "Free People of the Rolling Hills"
         else -> "No faction"
     }
-    println("$name faction is $faction")
+}
 
-    // aura
+private fun printPlayerStatus(
+    healthPoints: Int,
+    auraColor: String,
+    isBlessed: Boolean,
+    name: String,
+    healthStatus: String,
+    faction: String
+) {
+    println("$name faction is $faction")
+    println("(HP: $healthPoints)(Aura: $auraColor)(Blessed: ${if (isBlessed) "YES" else "NO"}) -> $name $healthStatus")
+}
+
+private fun auraColor(isBlessed: Boolean, healthPoints: Int, isImmortal: Boolean): String {
     val auraInvisible = isBlessed && healthPoints > 50 || isImmortal
     val karma = (Math.pow(Math.random(), (110 - healthPoints) / 100.0) * 20).toInt()
     val auraColor = if (auraInvisible) {
@@ -32,7 +58,10 @@ fun main(args: Array<String>) {
     } else {
         "none"
     }
+    return auraColor
+}
 
+private fun formatHealthStatus(healthPoints: Int, isBlessed: Boolean): String {
     val healthStatus = when (healthPoints) {
         100 -> "best condition!"
         in 90..99 -> "some scratch."
@@ -44,5 +73,5 @@ fun main(args: Array<String>) {
         in 15..74 -> "hurt a lot."
         else -> "worst condition!"
     }
-    println("(HP: $healthPoints)(Aura: $auraColor)(Blessed: ${if (isBlessed) "YES" else "NO"}) -> $name $healthStatus")
+    return healthStatus
 }
