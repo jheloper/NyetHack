@@ -42,6 +42,7 @@ private fun printPlayerStatus(
 ) {
     println("$name faction is $faction")
     println("(HP: $healthPoints)(Aura: $auraColor)(Blessed: ${if (isBlessed) "YES" else "NO"}) -> $name $healthStatus")
+    castFireBall()
 }
 
 private fun auraColor(isBlessed: Boolean, healthPoints: Int, isImmortal: Boolean): String {
@@ -74,4 +75,8 @@ private fun formatHealthStatus(healthPoints: Int, isBlessed: Boolean): String {
         else -> "worst condition!"
     }
     return healthStatus
+}
+
+private fun castFireBall(numFireBalls: Int = 2) {
+    println("shoot fire ball. (x$numFireBalls)")
 }
