@@ -62,21 +62,17 @@ private fun auraColor(isBlessed: Boolean, healthPoints: Int, isImmortal: Boolean
     return auraColor
 }
 
-private fun formatHealthStatus(healthPoints: Int, isBlessed: Boolean): String {
-    val healthStatus = when (healthPoints) {
-        100 -> "best condition!"
-        in 90..99 -> "some scratch."
-        in 75..89 -> if (isBlessed) {
-            "slight wound, but heal quickly."
-        } else {
-            "slight wound."
-        }
-        in 15..74 -> "hurt a lot."
-        else -> "worst condition!"
+// 단일 표현식 함수. 함수 몸체를 사용하는 대신 대입 연산자 다음에 표현식(실향 코드) 정의.
+private fun formatHealthStatus(healthPoints: Int, isBlessed: Boolean) = when (healthPoints) {
+    100 -> "best condition!"
+    in 90..99 -> "some scratch."
+    in 75..89 -> if (isBlessed) {
+        "slight wound, but heal quickly."
+    } else {
+        "slight wound."
     }
-    return healthStatus
+    in 15..74 -> "hurt a lot."
+    else -> "worst condition!"
 }
 
-private fun castFireBall(numFireBalls: Int = 2) {
-    println("shoot fire ball. (x$numFireBalls)")
-}
+private fun castFireBall(numFireBalls: Int = 2) = println("shoot fire ball. (x$numFireBalls)")
