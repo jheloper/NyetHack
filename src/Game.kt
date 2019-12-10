@@ -19,7 +19,15 @@ fun main(args: Array<String>) {
     val auraColor = auraColor(isBlessed, healthPoints, isImmortal)
     val healthStatus = formatHealthStatus(healthPoints, isBlessed)
 
-    printPlayerStatus(healthPoints, auraColor, isBlessed, name, healthStatus, faction)
+    // 지명 함수 인자를 사용하여 원하는 순서로 인자를 전달할 수 있다.
+    printPlayerStatus(
+        healthPoints = healthPoints,
+        auraColor = auraColor,
+        isBlessed = isBlessed,
+        name = name,
+        healthStatus = healthStatus,
+        faction = faction
+    )
 }
 
 private fun faction(race: String): String {
@@ -62,7 +70,7 @@ private fun auraColor(isBlessed: Boolean, healthPoints: Int, isImmortal: Boolean
     return auraColor
 }
 
-// 단일 표현식 함수. 함수 몸체를 사용하는 대신 대입 연산자 다음에 표현식(실향 코드) 정의.
+// 단일 표현식 함수. 함수 몸체를 사용하는 대신 대입 연산자 다음에 표현식(실행 코드) 정의.
 private fun formatHealthStatus(healthPoints: Int, isBlessed: Boolean) = when (healthPoints) {
     100 -> "best condition!"
     in 90..99 -> "some scratch."
@@ -75,4 +83,5 @@ private fun formatHealthStatus(healthPoints: Int, isBlessed: Boolean) = when (he
     else -> "worst condition!"
 }
 
+// 아무것도 반환하지 않는 함수는 Unit 반환 함수.
 private fun castFireBall(numFireBalls: Int = 2) = println("shoot fire ball. (x$numFireBalls)")
