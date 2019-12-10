@@ -16,12 +16,11 @@ fun main(args: Array<String>) {
         "human" -> "Free People of the Rolling Hills"
         else -> "No faction"
     }
-    println(name + " faction is " + faction)
+    println("$name faction is $faction")
 
     // aura
     val auraInvisible = isBlessed && healthPoints > 50 || isImmortal
     val auraColor = if (auraInvisible) "green" else "none"
-    println(name + " aura is " + auraColor)
 
     val healthStatus = when (healthPoints) {
         100 -> "best condition!"
@@ -34,5 +33,7 @@ fun main(args: Array<String>) {
         in 15..74 -> "hurt a lot."
         else -> "worst condition!"
     }
-    println(name + " " + healthStatus)
+    println("(Aura: $auraColor) " +
+            "(Blessed: ${if (isBlessed) "YES" else "NO"})")
+    println("$name $healthStatus")
 }
