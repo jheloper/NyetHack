@@ -58,11 +58,26 @@ private fun printPlayerStatus(
     castFireBall()
 }
 
-private fun auraColor(isBlessed: Boolean, healthPoints: Int, isImmortal: Boolean): String {
-    val auraInvisible = isBlessed && healthPoints > 50 || isImmortal
-    val karma = (Math.pow(Math.random(), (110 - healthPoints) / 100.0) * 20).toInt()
-    val auraColor = if (auraInvisible) {
-        when (karma) {
+//private fun auraColor(isBlessed: Boolean, healthPoints: Int, isImmortal: Boolean): String {
+//    val auraInvisible = isBlessed && healthPoints > 50 || isImmortal
+//    val karma = (Math.pow(Math.random(), (110 - healthPoints) / 100.0) * 20).toInt()
+//    val auraColor = if (auraInvisible) {
+//        when (karma) {
+//            in 0..5 -> "red"
+//            in 6..10 -> "orange"
+//            in 11..15 -> "purple"
+//            in 16..20 -> "green"
+//            else -> "none"
+//        }
+//    } else {
+//        "none"
+//    }
+//    return auraColor
+//}
+
+private fun auraColor(isBlessed: Boolean, healthPoints: Int, isImmortal: Boolean) =
+    if (isBlessed && healthPoints > 50 || isImmortal) {
+        when ((Math.pow(Math.random(), (110 - healthPoints) / 100.0) * 20).toInt()) {
             in 0..5 -> "red"
             in 6..10 -> "orange"
             in 11..15 -> "purple"
@@ -72,8 +87,6 @@ private fun auraColor(isBlessed: Boolean, healthPoints: Int, isImmortal: Boolean
     } else {
         "none"
     }
-    return auraColor
-}
 
 // 단일 표현식 함수. 함수 몸체를 사용하는 대신 대입 연산자 다음에 표현식(실행 코드) 정의.
 private fun formatHealthStatus(healthPoints: Int, isBlessed: Boolean) = when (healthPoints) {
