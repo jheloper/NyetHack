@@ -28,6 +28,10 @@ fun main(args: Array<String>) {
         healthStatus = healthStatus,
         faction = faction
     )
+
+    performCombat()
+    performCombat("Ulrich")
+    performCombat("Hildr", true)
 }
 
 private fun faction(race: String): String {
@@ -85,3 +89,26 @@ private fun formatHealthStatus(healthPoints: Int, isBlessed: Boolean) = when (he
 
 // 아무것도 반환하지 않는 함수는 Unit 반환 함수.
 private fun castFireBall(numFireBalls: Int = 2) = println("shoot fire ball. (x$numFireBalls)")
+
+// Nothing 타입을 반환하는 경우 제어권이 복귀되지 않음.
+private fun shouldReturnAString(): String {
+    // TODO() 함수는 Nothing 타입을 반환.
+    TODO("문자열을 반환하는 코드를 여기에 구현해야 함")
+    println("이 코드는 실행되지 않음")
+}
+
+fun performCombat() {
+    println("No enemy!")
+}
+
+fun performCombat(enemyName: String) {
+    println("combat $enemyName.")
+}
+
+fun performCombat(enemyName: String, isBlessed: Boolean) {
+    if (isBlessed) {
+        println("start combat $enemyName. blessed!")
+    } else {
+        println("start combat $enemyName.")
+    }
+}
