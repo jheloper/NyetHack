@@ -32,6 +32,7 @@ fun main(args: Array<String>) {
     performCombat()
     performCombat("Ulrich")
     performCombat("Hildr", true)
+    `**~prolly not a good idea!~**`()
 }
 
 private fun faction(race: String): String {
@@ -111,4 +112,8 @@ fun performCombat(enemyName: String, isBlessed: Boolean) {
     } else {
         println("start combat $enemyName.")
     }
+}
+
+fun `**~prolly not a good idea!~**`() {
+    println("this function has backtick function name")
 }
