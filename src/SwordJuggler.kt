@@ -9,9 +9,13 @@ fun main(args: Array<String>) {
         swordJuggling = 2
     }
 
-    proficiencyCheck(swordJuggling)
-    // 아래 코드는 상황에 따라 KotlinNullPointerException을 발생시키고 프로그램이 종료된다.
-    swordJuggling = swordJuggling!!.plus(1)
+    try {
+        proficiencyCheck(swordJuggling)
+        // 아래 코드는 상황에 따라 KotlinNullPointerException을 발생시키고 프로그램이 종료된다.
+        swordJuggling = swordJuggling!!.plus(1)
+    } catch (e: Exception) {
+        println(e)
+    }
 
     println("juggle $swordJuggling swords!")
 }
