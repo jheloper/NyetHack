@@ -2,6 +2,8 @@
  * @author joonghyeon.kim
  */
 
+const val TAVERN_NAME = "Taernyl's Folly"
+
 fun main(args: Array<String>) {
     val signatureDrink = "Beer"
 
@@ -11,7 +13,9 @@ fun main(args: Array<String>) {
 
     // orderBeverage3(signatureDrink)
 
-    orderBeverage4()
+    // orderBeverage4()
+
+    placeOrder()
 }
 
 fun orderBeverage1(signatureDrink: String) {
@@ -26,6 +30,12 @@ fun orderBeverage1(signatureDrink: String) {
     }
     // beverage = null
     println(beverage)
+}
+
+private fun placeOrder() {
+    val indexOfApostrophe = TAVERN_NAME.indexOf('\'')
+    val tavernMaster = TAVERN_NAME.substring(0 until indexOfApostrophe)
+    println("Madrigal do order to $tavernMaster")
 }
 
 fun orderBeverage2() {
