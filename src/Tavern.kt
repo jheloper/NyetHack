@@ -15,7 +15,7 @@ fun main(args: Array<String>) {
 
     // orderBeverage4()
 
-    placeOrder()
+    placeOrder("shandy,Dragon's Breath,5.91")
 }
 
 fun orderBeverage1(signatureDrink: String) {
@@ -32,10 +32,20 @@ fun orderBeverage1(signatureDrink: String) {
     println(beverage)
 }
 
-private fun placeOrder() {
+private fun placeOrder(menuData: String) {
     val indexOfApostrophe = TAVERN_NAME.indexOf('\'')
     val tavernMaster = TAVERN_NAME.substring(0 until indexOfApostrophe)
     println("Madrigal do order to $tavernMaster")
+
+    // val data = menuData.split(',')
+    // val type = data[0]
+    // val name = data[1]
+    // val price = data[2]
+    val (type, name, price) = menuData.split(',')
+    val message = "Type: ${type}, Name:${name}, Price: ${price}"
+    println(message)
+
+
 }
 
 fun orderBeverage2() {
