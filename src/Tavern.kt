@@ -18,6 +18,37 @@ fun main(args: Array<String>) {
     placeOrder("shandy,Dragon's Breath,5.91")
 }
 
+private fun placeOrder(menuData: String) {
+    val indexOfApostrophe = TAVERN_NAME.indexOf('\'')
+    val tavernMaster = TAVERN_NAME.substring(0 until indexOfApostrophe)
+    println("Madrigal do order to $tavernMaster")
+
+    // val data = menuData.split(',')
+    // val type = data[0]
+    // val name = data[1]
+    // val price = data[2]
+
+    // 아래와 같이 해체 선언(destructing declaration)을 사용할 수 있다.
+    val (type, name, price) = menuData.split(',')
+    val message = "Type: ${type}, Name:${name}, Price: ${price}"
+    println(message)
+
+    val phrase = "wow, awesome $name!"
+    println("Madrigal feel amazing: ${toDragonSpeak(phrase)}")
+}
+
+private fun toDragonSpeak(phrase: String) =
+    phrase.replace(Regex("[aeiou]")) {
+        when (it.value) {
+            "a" -> "4"
+            "e" -> "3"
+            "i" -> "1"
+            "o" -> "0"
+            "u" -> "|_|"
+            else -> it.value
+        }
+    }
+
 fun orderBeverage1(signatureDrink: String) {
     // 아래와 같이 안전 호출 연산자(?.)를 이용하면 반환값이 null이 아닌 경우에만 체이닝된 함수를 호출한다.
     var beverage = readLine()?.let {
@@ -30,22 +61,6 @@ fun orderBeverage1(signatureDrink: String) {
     }
     // beverage = null
     println(beverage)
-}
-
-private fun placeOrder(menuData: String) {
-    val indexOfApostrophe = TAVERN_NAME.indexOf('\'')
-    val tavernMaster = TAVERN_NAME.substring(0 until indexOfApostrophe)
-    println("Madrigal do order to $tavernMaster")
-
-    // val data = menuData.split(',')
-    // val type = data[0]
-    // val name = data[1]
-    // val price = data[2]
-    val (type, name, price) = menuData.split(',')
-    val message = "Type: ${type}, Name:${name}, Price: ${price}"
-    println(message)
-
-
 }
 
 fun orderBeverage2() {
