@@ -17,6 +17,10 @@ fun main(args: Array<String>) {
 
     // placeOrder("shandy,Dragon's Breath,5.91")
     placeOrder("elixir,Shirley's Temple,5.91")
+
+    printOmSymbol()
+
+    printCharactersInSentence("Dragon's Breath")
 }
 
 private fun placeOrder(menuData: String) {
@@ -99,4 +103,17 @@ fun orderBeverage4() {
         beverage = it.capitalize()
     } ?: println("beverage is null!")
     println(beverage)
+}
+
+fun printOmSymbol() {
+    // 아래와 같이 유니코드 코드값으로 유니코드 문자를 지정할 수 있다.
+    val omSymbol = '\u0950'
+    println(omSymbol)
+}
+
+fun printCharactersInSentence(sentence: String) {
+    // String의 forEach로 문자 하나씩 순회 가능하다.
+    sentence.forEach {
+        println("$it")
+    }
 }
