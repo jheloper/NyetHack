@@ -15,7 +15,8 @@ fun main(args: Array<String>) {
 
     // orderBeverage4()
 
-    placeOrder("shandy,Dragon's Breath,5.91")
+    // placeOrder("shandy,Dragon's Breath,5.91")
+    placeOrder("elixir,Shirley's Temple,5.91")
 }
 
 private fun placeOrder(menuData: String) {
@@ -33,8 +34,13 @@ private fun placeOrder(menuData: String) {
     val message = "Type: ${type}, Name:${name}, Price: ${price}"
     println(message)
 
-    val phrase = "wow, awesome $name!"
-    println("Madrigal feel amazing: ${toDragonSpeak(phrase)}")
+    // 코틀린의 문자열 비교는 기본적으로 값이 같은지를 비교하기 때문에 아래와 같이 ==를 사용하면 된다.
+    val phrase = if (name == "Dragon's Breath") {
+        "Madrigal feel amazing: ${toDragonSpeak("wow, awesome $name!")}"
+    } else {
+        "Madrigal said: Thanks, $name"
+    }
+    println(phrase)
 }
 
 private fun toDragonSpeak(phrase: String) =
