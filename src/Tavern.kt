@@ -4,6 +4,9 @@
 
 const val TAVERN_NAME = "Taernyl's Folly"
 
+var playerGold = 10
+var playerSilver = 10
+
 fun main(args: Array<String>) {
     val signatureDrink = "Beer"
 
@@ -15,12 +18,20 @@ fun main(args: Array<String>) {
 
     // orderBeverage4()
 
-    // placeOrder("shandy,Dragon's Breath,5.91")
-    placeOrder("elixir,Shirley's Temple,5.91")
+    placeOrder("shandy,Dragon's Breath,5.91")
+    // placeOrder("elixir,Shirley's Temple,5.91")
 
-    printOmSymbol()
+    // printOmSymbol()
 
-    printCharactersInSentence("Dragon's Breath")
+    // printCharactersInSentence("Dragon's Breath")
+}
+
+fun performPurchase() {
+    displayBalance()
+}
+
+private fun displayBalance() {
+    println("Player's wallet balance: Gold: $playerGold, Silver: $playerSilver")
 }
 
 private fun placeOrder(menuData: String) {
@@ -37,6 +48,8 @@ private fun placeOrder(menuData: String) {
     val (type, name, price) = menuData.split(',')
     val message = "Type: ${type}, Name:${name}, Price: ${price}"
     println(message)
+
+    performPurchase()
 
     // 코틀린의 문자열 비교는 기본적으로 값이 같은지를 비교하기 때문에 아래와 같이 ==를 사용하면 된다.
     val phrase = if (name == "Dragon's Breath") {
