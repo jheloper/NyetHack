@@ -45,16 +45,19 @@ private fun placeOrder(menuData: String) {
         "Madrigal said: Thanks, $name"
     }
     println(phrase)
+
+    val upperCasePhrase = toDragonSpeak("DRAGON'S BREATH: IT'S GOT WHAT ADVENTURERS CRAVE!")
+    println(upperCasePhrase)
 }
 
 private fun toDragonSpeak(phrase: String) =
-    phrase.replace(Regex("[aeiou]")) {
+    phrase.replace(Regex("[aeiouAEIOU]")) {
         when (it.value) {
-            "a" -> "4"
-            "e" -> "3"
-            "i" -> "1"
-            "o" -> "0"
-            "u" -> "|_|"
+            "a", "A" -> "4"
+            "e", "E" -> "3"
+            "i", "I" -> "1"
+            "o", "O" -> "0"
+            "u", "U" -> "|_|"
             else -> it.value
         }
     }
