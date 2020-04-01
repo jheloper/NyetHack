@@ -26,8 +26,15 @@ fun main(args: Array<String>) {
     // printCharactersInSentence("Dragon's Breath")
 }
 
-fun performPurchase() {
+fun performPurchase(price: Double) {
     displayBalance()
+
+    val totalPurse = playerGold + (playerSilver / 100.0)
+    println("wallet total balance: $totalPurse Gold")
+    println("purchase a drink, $price Gold")
+
+    val remainingBalance = totalPurse - price
+    println("remaining balance: $remainingBalance")
 }
 
 private fun displayBalance() {
@@ -49,7 +56,7 @@ private fun placeOrder(menuData: String) {
     val message = "Type: ${type}, Name:${name}, Price: ${price}"
     println(message)
 
-    performPurchase()
+    performPurchase(price.toDouble())
 
     // 코틀린의 문자열 비교는 기본적으로 값이 같은지를 비교하기 때문에 아래와 같이 ==를 사용하면 된다.
     val phrase = if (name == "Dragon's Breath") {
