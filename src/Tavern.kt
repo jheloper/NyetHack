@@ -7,6 +7,7 @@ const val TAVERN_NAME = "Taernyl's Folly"
 
 var playerGold = 10
 var playerSilver = 10
+val patronList = listOf("Eli", "Mordoc", "Sophie")
 
 fun main(args: Array<String>) {
     val signatureDrink = "Beer"
@@ -25,6 +26,11 @@ fun main(args: Array<String>) {
     // printOmSymbol()
 
     // printCharactersInSentence("Dragon's Breath")
+
+    println(patronList)
+    println(patronList[1])
+    println(patronList.first())
+    println(patronList.last())
 }
 
 fun performPurchase(price: Double) {
