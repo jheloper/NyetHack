@@ -31,6 +31,20 @@ fun main(args: Array<String>) {
     println(patronList[1])
     println(patronList.first())
     println(patronList.last())
+    println(patronList.getOrElse(3) { "Unknown Patron(getOrElse)" })
+    println(patronList.getOrNull(3) ?: "Unknown Patron(getOrNull)")
+
+    if (patronList.contains("Eli")) {
+        println("Tavern master said: Eli play the card inside that room.")
+    } else {
+        println("Tavern master said: Eli is not here.")
+    }
+
+    if (patronList.containsAll(listOf("Sophie", "Mordoc"))) {
+        println("Tavern master said: Yes, they are here.")
+    } else {
+        println("Tavern master said: No, someone had get out of here.")
+    }
 }
 
 fun performPurchase(price: Double) {
