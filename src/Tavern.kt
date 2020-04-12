@@ -28,9 +28,9 @@ fun main(args: Array<String>) {
     // printCharactersInSentence("Dragon's Breath")
 
     println(patronList)
-    println(patronList[1])
-    println(patronList.first())
-    println(patronList.last())
+    // println(patronList[1])
+    // println(patronList.first())
+    // println(patronList.last())
     println(patronList.getOrElse(3) { "Unknown Patron(getOrElse)" })
     println(patronList.getOrNull(3) ?: "Unknown Patron(getOrNull)")
 
@@ -46,10 +46,19 @@ fun main(args: Array<String>) {
         println("Tavern master said: No, someone had get out of here.")
     }
 
+    val readOnlyPatronList = patronList.toList()
+
     patronList.remove("Eli")
     patronList.add("Alex")
     patronList.add(0, "Romeo")
+    patronList[0] = "Michael"
+
     println(patronList)
+    println(readOnlyPatronList)
+
+    for (patron in patronList) {
+        println("Good night, $patron")
+    }
 }
 
 fun performPurchase(price: Double) {
