@@ -56,8 +56,16 @@ fun main(args: Array<String>) {
     println(patronList)
     println(readOnlyPatronList)
 
-    for (patron in patronList) {
+    // for (patron in patronList) {
+    //     println("Good night, $patron")
+    // }
+
+    patronList.forEach { patron ->
         println("Good night, $patron")
+    }
+
+    patronList.forEachIndexed { index, patron ->
+        println("$patron, You are ${index + 1}th patron!")
     }
 }
 
