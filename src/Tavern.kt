@@ -20,7 +20,7 @@ fun main(args: Array<String>) {
 
     // orderBeverage4()
 
-    placeOrder("shandy,Dragon's Breath,5.91")
+    // placeOrder("shandy,Dragon's Breath,5.91")
     // placeOrder("elixir,Shirley's Temple,5.91")
 
     // printOmSymbol()
@@ -66,6 +66,7 @@ fun main(args: Array<String>) {
 
     patronList.forEachIndexed { index, patron ->
         println("$patron, You are ${index + 1}th patron!")
+        placeOrder(patron, "shandy,Dragon's Breath,5.91")
     }
 }
 
@@ -95,10 +96,10 @@ private fun displayBalance() {
     println("Player's wallet balance: Gold: $playerGold, Silver: $playerSilver")
 }
 
-private fun placeOrder(menuData: String) {
+private fun placeOrder(patronName: String, menuData: String) {
     val indexOfApostrophe = TAVERN_NAME.indexOf('\'')
     val tavernMaster = TAVERN_NAME.substring(0 until indexOfApostrophe)
-    println("Madrigal do order to $tavernMaster")
+    println("$patronName do order to $tavernMaster")
 
     // val data = menuData.split(',')
     // val type = data[0]
@@ -114,9 +115,9 @@ private fun placeOrder(menuData: String) {
 
     // 코틀린의 문자열 비교는 기본적으로 값이 같은지를 비교하기 때문에 아래와 같이 ==를 사용하면 된다.
     val phrase = if (name == "Dragon's Breath") {
-        "Madrigal feel amazing: ${toDragonSpeak("wow, awesome $name!")}"
+        "$patronName feel amazing: ${toDragonSpeak("wow, awesome $name!")}"
     } else {
-        "Madrigal said: Thanks, $name"
+        "$patronName said: Thanks, $name"
     }
     println(phrase)
 
