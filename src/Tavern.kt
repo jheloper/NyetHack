@@ -1,6 +1,7 @@
 /**
  * @author joonghyeon.kim
  */
+import java.io.File
 import kotlin.math.roundToInt
 
 const val TAVERN_NAME = "Taernyl's Folly"
@@ -67,6 +68,11 @@ fun main(args: Array<String>) {
     patronList.forEachIndexed { index, patron ->
         println("$patron, You are ${index + 1}th patron!")
         placeOrder(patron, "shandy,Dragon's Breath,5.91")
+    }
+
+    val menuList = File("data/tavern-menu-items.txt").readText().split(System.lineSeparator())
+    menuList.forEachIndexed { index, data ->
+        println("$index : $data")
     }
 }
 
