@@ -61,18 +61,15 @@ fun main(args: Array<String>) {
     //     println("Good night, $patron")
     // }
 
-    patronList.forEach { patron ->
-        println("Good night, $patron")
-    }
-
-    patronList.forEachIndexed { index, patron ->
-        println("$patron, You are ${index + 1}th patron!")
-        placeOrder(patron, "shandy,Dragon's Breath,5.91")
-    }
+    // patronList.forEach { patron ->
+    //    println("Good night, $patron")
+    // }
 
     val menuList = File("data/tavern-menu-items.txt").readText().split(System.lineSeparator())
-    menuList.forEachIndexed { index, data ->
-        println("$index : $data")
+
+    patronList.forEachIndexed { index, patron ->
+        println("Good evening, $patron - You are #${index + 1} in line.")
+        placeOrder(patron, menuList.shuffled().first())
     }
 }
 
