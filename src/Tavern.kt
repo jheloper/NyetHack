@@ -9,6 +9,8 @@ const val TAVERN_NAME = "Taernyl's Folly"
 var playerGold = 10
 var playerSilver = 10
 val patronList = mutableListOf("Eli", "Mordoc", "Sophie")
+val lastNames = listOf("Ironfoot", "Fernsworth", "Baggins")
+val uniquePatrons = mutableSetOf<String>()
 
 fun main(args: Array<String>) {
     val signatureDrink = "Beer"
@@ -71,6 +73,14 @@ fun main(args: Array<String>) {
         println("Good evening, $patron - You are #${index + 1} in line.")
         placeOrder(patron, menuList.shuffled().first())
     }
+
+    (0..9).forEach {
+        val first = patronList.shuffled().first()
+        val last = lastNames.shuffled().first()
+        val name = "$first $last"
+        uniquePatrons += name
+    }
+    println(uniquePatrons)
 }
 
 fun performPurchase(price: Double) {
