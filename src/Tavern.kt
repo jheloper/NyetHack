@@ -69,10 +69,10 @@ fun main(args: Array<String>) {
 
     val menuList = File("data/tavern-menu-items.txt").readText().split(System.lineSeparator())
 
-    patronList.forEachIndexed { index, patron ->
-        println("Good evening, $patron - You are #${index + 1} in line.")
-        placeOrder(patron, menuList.shuffled().first())
-    }
+    // patronList.forEachIndexed { index, patron ->
+    //     println("Good evening, $patron - You are #${index + 1} in line.")
+    //     placeOrder(patron, menuList.shuffled().first())
+    // }
 
     (0..9).forEach {
         val first = patronList.shuffled().first()
@@ -81,6 +81,12 @@ fun main(args: Array<String>) {
         uniquePatrons += name
     }
     println(uniquePatrons)
+
+    var orderCount = 0
+    while (orderCount <= 9) {
+        placeOrder(uniquePatrons.shuffled().first(), menuList.shuffled().first())
+        orderCount++
+    }
 }
 
 fun performPurchase(price: Double) {
