@@ -83,7 +83,11 @@ fun main(args: Array<String>) {
     println(uniquePatrons)
 
     var orderCount = 0
-    while (orderCount <= 9) {
+    while (true) {
+        val isAvailable = orderCount <= 9
+        if (!isAvailable) {
+            break
+        }
         placeOrder(uniquePatrons.shuffled().first(), menuList.shuffled().first())
         orderCount++
     }
