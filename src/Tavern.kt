@@ -11,6 +11,7 @@ var playerSilver = 10
 val patronList = mutableListOf("Eli", "Mordoc", "Sophie")
 val lastNames = listOf("Ironfoot", "Fernsworth", "Baggins")
 val uniquePatrons = mutableSetOf<String>()
+val patronGold = mapOf("Eli" to 10.5, "Mordoc" to 8.0, "Sophie" to 5.5)
 
 fun main(args: Array<String>) {
     val signatureDrink = "Beer"
@@ -91,6 +92,8 @@ fun main(args: Array<String>) {
         placeOrder(uniquePatrons.shuffled().first(), menuList.shuffled().first())
         orderCount++
     }
+
+    println(patronGold)
 }
 
 fun performPurchase(price: Double) {
