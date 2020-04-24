@@ -11,7 +11,7 @@ var playerSilver = 10
 val patronList = mutableListOf("Eli", "Mordoc", "Sophie")
 val lastNames = listOf("Ironfoot", "Fernsworth", "Baggins")
 val uniquePatrons = mutableSetOf<String>()
-val patronGold = mutableMapOf("Eli" to 10.5, "Mordoc" to 8.0, "Sophie" to 5.5)
+val patronGold = mutableMapOf<String, Double>()
 
 fun main(args: Array<String>) {
     val signatureDrink = "Beer"
@@ -83,6 +83,11 @@ fun main(args: Array<String>) {
     }
     println(uniquePatrons)
 
+    uniquePatrons.forEach {
+        patronGold[it] = 6.0
+    }
+    println(patronGold)
+
     var orderCount = 0
     while (true) {
         val isAvailable = orderCount <= 9
@@ -93,10 +98,15 @@ fun main(args: Array<String>) {
         orderCount++
     }
 
-    println(patronGold)
+    val samplePatron = mutableMapOf(
+        "Eli" to 10.5,
+        "Mordoc" to 8.0,
+        "Sophie" to 5.5
+    )
+    println(samplePatron)
 
-    patronGold += "Sophie" to 7.0
-    println(patronGold)
+    samplePatron += "Sophie" to 7.0
+    println(samplePatron)
 
     println(mapOf(
         "Eli" to 10.5,
@@ -105,9 +115,9 @@ fun main(args: Array<String>) {
         "Sophie" to 6.25
     ))
 
-    println(patronGold["Eli"])
-    println(patronGold["Mordoc"])
-    println(patronGold["Sophie"])
+    println(samplePatron["Eli"])
+    println(samplePatron["Mordoc"])
+    println(samplePatron["Sophie"])
 }
 
 fun performPurchase(price: Double) {
