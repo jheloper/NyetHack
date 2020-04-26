@@ -2,12 +2,9 @@
  * @author joonghyeon.kim
  */
 import java.io.File
-import kotlin.math.roundToInt
 
 const val TAVERN_NAME = "Taernyl's Folly"
 
-var playerGold = 10
-var playerSilver = 10
 val patronList = mutableListOf("Eli", "Mordoc", "Sophie")
 val lastNames = listOf("Ironfoot", "Fernsworth", "Baggins")
 val uniquePatrons = mutableSetOf<String>()
@@ -31,24 +28,24 @@ fun main(args: Array<String>) {
 
     // printCharactersInSentence("Dragon's Breath")
 
-    println(patronList)
+    // println(patronList)
     // println(patronList[1])
     // println(patronList.first())
     // println(patronList.last())
-    println(patronList.getOrElse(3) { "Unknown Patron(getOrElse)" })
-    println(patronList.getOrNull(3) ?: "Unknown Patron(getOrNull)")
+    // println(patronList.getOrElse(3) { "Unknown Patron(getOrElse)" })
+    // println(patronList.getOrNull(3) ?: "Unknown Patron(getOrNull)")
 
-    if (patronList.contains("Eli")) {
-        println("Tavern master said: Eli play the card inside that room.")
-    } else {
-        println("Tavern master said: Eli is not here.")
-    }
+    // if (patronList.contains("Eli")) {
+    //     println("Tavern master said: Eli play the card inside that room.")
+    // } else {
+    //     println("Tavern master said: Eli is not here.")
+    // }
 
-    if (patronList.containsAll(listOf("Sophie", "Mordoc"))) {
-        println("Tavern master said: Yes, they are here.")
-    } else {
-        println("Tavern master said: No, someone had get out of here.")
-    }
+    // if (patronList.containsAll(listOf("Sophie", "Mordoc"))) {
+    //     println("Tavern master said: Yes, they are here.")
+    // } else {
+    //     println("Tavern master said: No, someone had get out of here.")
+    // }
 
     val readOnlyPatronList = patronList.toList()
 
@@ -98,52 +95,38 @@ fun main(args: Array<String>) {
         orderCount++
     }
 
-    val samplePatron = mutableMapOf(
-        "Eli" to 10.5,
-        "Mordoc" to 8.0,
-        "Sophie" to 5.5
-    )
-    println(samplePatron)
+    // printSamplePatronsMap()
 
-    samplePatron += "Sophie" to 7.0
-    println(samplePatron)
-
-    println(mapOf(
-        "Eli" to 10.5,
-        "Mordoc" to 8.0,
-        "Sophie" to 5.5,
-        "Sophie" to 6.25
-    ))
-
-    println(samplePatron["Eli"])
-    println(samplePatron["Mordoc"])
-    println(samplePatron["Sophie"])
+    displayPatronBalances()
 }
 
-fun performPurchase(price: Double) {
-    displayBalance()
+fun performPurchase(price: Double, patronName: String) {
+    val totalPurse = patronGold.getValue(patronName)
+    patronGold[patronName] = totalPurse - price
 
-    val totalPurse = playerGold + (playerSilver / 100.0)
-    println("wallet total balance: $totalPurse Gold")
+//    val totalPurse = playerGold + (playerSilver / 100.0)
+//    println("wallet total balance: $totalPurse Gold")
+//
+//    if (price > totalPurse) {
+//        println("not enough wallet balance!")
+//    } else {
+//        println("purchase a drink, $price Gold")
+//
+//        val remainingBalance = totalPurse - price
+//        println("remaining balance: ${"%.2f".format(remainingBalance)}")
+//
+//        val remainingGold = remainingBalance.toInt()
+//        val remainingSilver = (remainingBalance % 1 * 100).roundToInt()
+//        playerGold = remainingGold
+//        playerSilver = remainingSilver
+//        displayBalance()
+//    }
+}
 
-    if (price > totalPurse) {
-        println("not enough wallet balance!")
-    } else {
-        println("purchase a drink, $price Gold")
-
-        val remainingBalance = totalPurse - price
-        println("remaining balance: ${"%.2f".format(remainingBalance)}")
-
-        val remainingGold = remainingBalance.toInt()
-        val remainingSilver = (remainingBalance % 1 * 100).roundToInt()
-        playerGold = remainingGold
-        playerSilver = remainingSilver
-        displayBalance()
+private fun displayPatronBalances() {
+    patronGold.forEach { (patron, balance) ->
+        println("$patron, balance: ${"%.2f".format(balance)}")
     }
-}
-
-private fun displayBalance() {
-    println("Player's wallet balance: Gold: $playerGold, Silver: $playerSilver")
 }
 
 private fun placeOrder(patronName: String, menuData: String) {
@@ -158,10 +141,10 @@ private fun placeOrder(patronName: String, menuData: String) {
 
     // 아래와 같이 해체 선언(destructing declaration)을 사용할 수 있다.
     val (type, name, price) = menuData.split(',')
-    val message = "Type: ${type}, Name:${name}, Price: ${price}"
+    val message = "Type: ${type}, Name: ${name}, Price: ${price}"
     println(message)
 
-    performPurchase(price.toDouble())
+    performPurchase(price.toDouble(), patronName)
 
     // 코틀린의 문자열 비교는 기본적으로 값이 같은지를 비교하기 때문에 아래와 같이 ==를 사용하면 된다.
     val phrase = if (name == "Dragon's Breath") {
@@ -171,8 +154,8 @@ private fun placeOrder(patronName: String, menuData: String) {
     }
     println(phrase)
 
-    val upperCasePhrase = toDragonSpeak("DRAGON'S BREATH: IT'S GOT WHAT ADVENTURERS CRAVE!")
-    println(upperCasePhrase)
+    // val upperCasePhrase = toDragonSpeak("DRAGON'S BREATH: IT'S GOT WHAT ADVENTURERS CRAVE!")
+    // println(upperCasePhrase)
 }
 
 private fun toDragonSpeak(phrase: String) =
@@ -186,6 +169,31 @@ private fun toDragonSpeak(phrase: String) =
             else -> it.value
         }
     }
+
+private fun printSamplePatronsMap() {
+    val samplePatron = mutableMapOf(
+        "Eli" to 10.5,
+        "Mordoc" to 8.0,
+        "Sophie" to 5.5
+    )
+    println(samplePatron)
+
+    samplePatron += "Sophie" to 7.0
+    println(samplePatron)
+
+    println(
+        mapOf(
+            "Eli" to 10.5,
+            "Mordoc" to 8.0,
+            "Sophie" to 5.5,
+            "Sophie" to 6.25
+        )
+    )
+
+    println(samplePatron["Eli"])
+    println(samplePatron["Mordoc"])
+    println(samplePatron["Sophie"])
+}
 
 fun orderBeverage1(signatureDrink: String) {
     // 아래와 같이 안전 호출 연산자(?.)를 이용하면 반환값이 null이 아닌 경우에만 체이닝된 함수를 호출한다.
