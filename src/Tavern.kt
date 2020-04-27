@@ -4,6 +4,7 @@
 import java.io.File
 
 const val TAVERN_NAME = "Taernyl's Folly"
+const val WELCOME_TAVERN_SENTENCE = "*** Welcome to $TAVERN_NAME ***"
 
 val patronList = mutableListOf("Eli", "Mordoc", "Sophie")
 val lastNames = listOf("Ironfoot", "Fernsworth", "Baggins")
@@ -65,7 +66,20 @@ fun main(args: Array<String>) {
     //    println("Good night, $patron")
     // }
 
+    val maxLength = WELCOME_TAVERN_SENTENCE.length
+
+    var menuBoard = WELCOME_TAVERN_SENTENCE
+
     val menuList = File("data/tavern-menu-items.txt").readText().split(System.lineSeparator())
+    menuList.forEach {
+        val (type, name, price) = it.split(',')
+        var dotString = ""
+        (1..(maxLength - name.length - price.length)).forEach {
+            dotString += "."
+        }
+        menuBoard += System.lineSeparator() + (name + dotString + price)
+    }
+    println(menuBoard)
 
     // patronList.forEachIndexed { index, patron ->
     //     println("Good evening, $patron - You are #${index + 1} in line.")
