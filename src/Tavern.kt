@@ -1,6 +1,3 @@
-/**
- * @author joonghyeon.kim
- */
 import java.io.File
 
 const val TAVERN_NAME = "Taernyl's Folly"

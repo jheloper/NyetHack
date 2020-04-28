@@ -1,6 +1,3 @@
-/**
- * @author joonghyeon.kim
- */
 // 파일 수준 변수
 const val MAX_EXPERIENCE: Int = 5000
 
@@ -11,6 +8,9 @@ fun main(args: Array<String>) {
     val isBlessed = true
     val isImmortal = false
     val race = "gnome"
+
+    val player = Player()
+    player.castFireBall()
 
     // faction
     val faction = faction(race)
@@ -55,7 +55,7 @@ private fun printPlayerStatus(
 ) {
     println("$name faction is $faction")
     println("(HP: $healthPoints)(Aura: $auraColor)(Blessed: ${if (isBlessed) "YES" else "NO"}) -> $name $healthStatus")
-    castFireBall()
+    // castFireBall()
 }
 
 //private fun auraColor(isBlessed: Boolean, healthPoints: Int, isImmortal: Boolean): String {
@@ -102,7 +102,7 @@ private fun formatHealthStatus(healthPoints: Int, isBlessed: Boolean) = when (he
 }
 
 // 아무것도 반환하지 않는 함수는 Unit 반환 함수.
-private fun castFireBall(numFireBalls: Int = 2) = println("shoot fire ball. (x$numFireBalls)")
+//private fun castFireBall(numFireBalls: Int = 2) = println("shoot fire ball. (x$numFireBalls)")
 
 // Nothing 타입을 반환하는 경우 제어권이 복귀되지 않음.
 private fun shouldReturnAString(): String {
