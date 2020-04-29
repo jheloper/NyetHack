@@ -3,7 +3,6 @@ const val MAX_EXPERIENCE: Int = 5000
 
 fun main(args: Array<String>) {
     // 지역 변수
-    val name = "Madrigal"
     var healthPoints = 89
     val isBlessed = true
     val isImmortal = false
@@ -24,7 +23,7 @@ fun main(args: Array<String>) {
         healthPoints = healthPoints,
         auraColor = auraColor,
         isBlessed = isBlessed,
-        name = name,
+        name = player.name,
         healthStatus = healthStatus,
         faction = faction
     )
