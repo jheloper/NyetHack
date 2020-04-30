@@ -9,6 +9,9 @@ fun main(args: Array<String>) {
     val race = "gnome"
 
     val player = Player()
+    player.name = "estragon "
+    println(player.name + "TheBrave")
+
     player.castFireBall()
 
     // faction
