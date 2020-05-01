@@ -35,6 +35,11 @@ fun main(args: Array<String>) {
     performCombat("Ulrich")
     performCombat("Hildr", true)
     `**~prolly not a good idea!~**`()
+
+    val myDice = Dice()
+    println(myDice.rolledValue)
+    println(myDice.rolledValue)
+    println(myDice.rolledValue)
 }
 
 private fun faction(race: String): String {
