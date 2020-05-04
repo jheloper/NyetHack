@@ -19,7 +19,7 @@ fun main(args: Array<String>) {
 }
 
 fun proficiencyCheck(swordJuggling: Int?) {
-    // swordJuggling ?: throw com.jheloper.nyethack.UnskilledSwordJugglerException()
+    // swordJuggling ?: throw UnskilledSwordJugglerException()
     checkNotNull(swordJuggling, { "player can not juggling!!" })
 }
 

@@ -13,35 +13,35 @@ val patronGold = mutableMapOf<String, Double>()
 fun main(args: Array<String>) {
     val signatureDrink = "Beer"
 
-    // com.jheloper.nyethack.orderBeverage1(signatureDrink)
+    // orderBeverage1(signatureDrink)
 
-    // com.jheloper.nyethack.orderBeverage2()
+    // orderBeverage2()
 
-    // com.jheloper.nyethack.orderBeverage3(signatureDrink)
+    // orderBeverage3(signatureDrink)
 
-    // com.jheloper.nyethack.orderBeverage4()
+    // orderBeverage4()
 
-    // com.jheloper.nyethack.placeOrder("shandy,Dragon's Breath,5.91")
-    // com.jheloper.nyethack.placeOrder("elixir,Shirley's Temple,5.91")
+    // placeOrder("shandy,Dragon's Breath,5.91")
+    // placeOrder("elixir,Shirley's Temple,5.91")
 
-    // com.jheloper.nyethack.printOmSymbol()
+    // printOmSymbol()
 
-    // com.jheloper.nyethack.printCharactersInSentence("Dragon's Breath")
+    // printCharactersInSentence("Dragon's Breath")
 
-    // println(com.jheloper.nyethack.getPatronList)
-    // println(com.jheloper.nyethack.getPatronList[1])
-    // println(com.jheloper.nyethack.getPatronList.first())
-    // println(com.jheloper.nyethack.getPatronList.last())
-    // println(com.jheloper.nyethack.getPatronList.getOrElse(3) { "Unknown Patron(getOrElse)" })
-    // println(com.jheloper.nyethack.getPatronList.getOrNull(3) ?: "Unknown Patron(getOrNull)")
+    // println(patronList)
+    // println(patronList[1])
+    // println(patronList.first())
+    // println(patronList.last())
+    // println(patronList.getOrElse(3) { "Unknown Patron(getOrElse)" })
+    // println(patronList.getOrNull(3) ?: "Unknown Patron(getOrNull)")
 
-    // if (com.jheloper.nyethack.getPatronList.contains("Eli")) {
+    // if (patronList.contains("Eli")) {
     //     println("Tavern master said: Eli play the card inside that room.")
     // } else {
     //     println("Tavern master said: Eli is not here.")
     // }
 
-    // if (com.jheloper.nyethack.getPatronList.containsAll(listOf("Sophie", "Mordoc"))) {
+    // if (patronList.containsAll(listOf("Sophie", "Mordoc"))) {
     //     println("Tavern master said: Yes, they are here.")
     // } else {
     //     println("Tavern master said: No, someone had get out of here.")
@@ -57,11 +57,11 @@ fun main(args: Array<String>) {
     println(patronList)
     println(readOnlyPatronList)
 
-    // for (patron in com.jheloper.nyethack.getPatronList) {
+    // for (patron in patronList) {
     //     println("Good night, $patron")
     // }
 
-    // com.jheloper.nyethack.getPatronList.forEach { patron ->
+    // patronList.forEach { patron ->
     //    println("Good night, $patron")
     // }
 
@@ -80,9 +80,9 @@ fun main(args: Array<String>) {
     }
     println(menuBoard)
 
-    // com.jheloper.nyethack.getPatronList.forEachIndexed { index, patron ->
+    // patronList.forEachIndexed { index, patron ->
     //     println("Good evening, $patron - You are #${index + 1} in line.")
-    //     com.jheloper.nyethack.placeOrder(patron, menuList.shuffled().first())
+    //     placeOrder(patron, menuList.shuffled().first())
     // }
 
     (0..9).forEach {
@@ -110,7 +110,7 @@ fun main(args: Array<String>) {
         orderCount++
     }
 
-    // com.jheloper.nyethack.printSamplePatronsMap()
+    // printSamplePatronsMap()
 
     displayPatronBalances()
 }
@@ -169,7 +169,7 @@ private fun placeOrder(patronName: String, menuData: String) {
     }
     println(phrase)
 
-    // val upperCasePhrase = com.jheloper.nyethack.toDragonSpeak("DRAGON'S BREATH: IT'S GOT WHAT ADVENTURERS CRAVE!")
+    // val upperCasePhrase = toDragonSpeak("DRAGON'S BREATH: IT'S GOT WHAT ADVENTURERS CRAVE!")
     // println(upperCasePhrase)
 }
 
