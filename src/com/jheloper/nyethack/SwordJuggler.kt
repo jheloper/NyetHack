@@ -1,3 +1,5 @@
+package com.jheloper.nyethack
+
 fun main(args: Array<String>) {
     var swordJuggling: Int? = null
     val isJugglingProficient = (1..3).shuffled().last() == 3
@@ -17,7 +19,7 @@ fun main(args: Array<String>) {
 }
 
 fun proficiencyCheck(swordJuggling: Int?) {
-    // swordJuggling ?: throw UnskilledSwordJugglerException()
+    // swordJuggling ?: throw com.jheloper.nyethack.UnskilledSwordJugglerException()
     checkNotNull(swordJuggling, { "player can not juggling!!" })
 }
 

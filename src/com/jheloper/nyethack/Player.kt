@@ -1,3 +1,5 @@
+package com.jheloper.nyethack
+
 class Player {
     var name = "madrigal"
         get() = field.capitalize()
