@@ -10,9 +10,9 @@ fun main(args: Array<String>) {
     // val isImmortal = false
     // val race = "gnome"
 
-    val player = Player()
-    player.name = "estragon "
-    println(player.name + "TheBrave")
+    val player = Player("madrigal", "gnome", 89, true, false)
+    // player.name = "estragon "
+    // println(player.name + "TheBrave")
 
     player.castFireBall()
 

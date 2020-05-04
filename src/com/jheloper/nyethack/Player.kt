@@ -1,15 +1,19 @@
 package com.jheloper.nyethack
 
-class Player {
-    var name = "madrigal"
+class Player(_name: String,
+             _race: String,
+             _healthPoints: Int,
+             _isBlessed: Boolean,
+             _isImmortal: Boolean) {
+    var name = _name
         get() = field.capitalize()
         set(value) {
             field = value.trim()
         }
-    val race = "gnome"
-    var healthPoints = 89
-    val isBlessed = true
-    private val isImmortal = false
+    val race = _race
+    var healthPoints = _healthPoints
+    val isBlessed = _isBlessed
+    private val isImmortal = _isImmortal
 
     fun auraColor(): String {
         val auraVisible = isBlessed && healthPoints > 50 || isImmortal
