@@ -10,7 +10,7 @@ fun main(args: Array<String>) {
     // val isImmortal = false
     // val race = "gnome"
 
-    val player = Player("madrigal", "gnome", 89, true, false)
+    val player = Player("madrigal")
     // player.name = "estragon "
     // println(player.name + "TheBrave")
 
