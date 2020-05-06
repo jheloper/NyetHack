@@ -11,6 +11,7 @@ fun main(args: Array<String>) {
     // val race = "gnome"
 
     val player = Player("madrigal")
+    // val player2 = Player("")
     // player.name = "estragon "
     // println(player.name + "TheBrave")
 

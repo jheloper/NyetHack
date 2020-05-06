@@ -1,22 +1,30 @@
 package com.jheloper.nyethack
 
+import java.io.File
+
 class Player(
     _name: String,
     val race: String,
-    var healthPoints: Int,
+    var healthPoints: Int = 100,
     val isBlessed: Boolean,
     private val isImmortal: Boolean
 ) {
     var name = _name
-        get() = field.capitalize()
+        get() = "${field.capitalize()} of $hometown"
         set(value) {
             field = value.trim()
         }
 
+    val hometown = selectHometown()
+
+    init {
+        require(healthPoints > 0, { "Health Points must be greater than 0." })
+        require(name.isNotBlank(), { "Player must have a name."})
+    }
+
     constructor(name: String) : this(
-        _name = name,
+        name,
         race = "gnome",
-        healthPoints = 100,
         isBlessed = true,
         isImmortal = false
     ) {
@@ -61,4 +69,6 @@ class Player(
     }
 
     fun castFireBall(numFireBalls: Int = 2) = println("shoot fire ball. (x$numFireBalls)")
+
+    private fun selectHometown() = File("data/towns.txt").readText().split(System.lineSeparator()).shuffled().first()
 }
