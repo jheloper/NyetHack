@@ -17,6 +17,10 @@ fun main(args: Array<String>) {
 
     player.castFireBall()
 
+    var currentRoom = Room("Foyer")
+    println(currentRoom.description())
+    println(currentRoom.load())
+
     // 지명 함수 인자를 사용하여 원하는 순서로 인자를 전달할 수 있다.
     printPlayerStatus(player)
 
