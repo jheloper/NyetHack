@@ -17,7 +17,7 @@ fun main(args: Array<String>) {
 
     player.castFireBall()
 
-    var currentRoom = Room("Foyer")
+    var currentRoom = TownSquare()
     println(currentRoom.description())
     println(currentRoom.load())
 
