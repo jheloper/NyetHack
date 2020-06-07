@@ -3,13 +3,16 @@ package com.jheloper.nyethack
 import java.io.File
 
 class Player(
+    // 기본 생성자
     _name: String,
-    val race: String,
+    val race: String, // 기본 생성자에서 속성 정의(var 또는 val을 붙이면 된다)
     var healthPoints: Int = 100,
     val isBlessed: Boolean,
     private val isImmortal: Boolean
 ) {
+    // 속성 정의
     var name = _name
+        // 속성의 getter, setter 정의
         get() = "${field.capitalize()} of $hometown"
         set(value) {
             field = value.trim()
@@ -17,11 +20,13 @@ class Player(
 
     val hometown = selectHometown()
 
+    // 초기화 블록
     init {
         require(healthPoints > 0, { "Health Points must be greater than 0." })
         require(name.isNotBlank(), { "Player must have a name."})
     }
 
+    // 보조 생성자
     constructor(name: String) : this(
         name,
         race = "gnome",
