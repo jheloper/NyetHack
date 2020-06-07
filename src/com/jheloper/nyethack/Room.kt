@@ -12,7 +12,7 @@ class TownSquare : Room("Town Square") {
     override val dangerLevel = super.dangerLevel - 3
     private var bellSound = "Dang!!"
 
-    override fun load() = "All residents welcome your join."
+    override fun load() = "All residents welcome your join.\r\n${ringBell()}"
 
     private fun ringBell() = "The bell tower announces your arrival. $bellSound"
 }

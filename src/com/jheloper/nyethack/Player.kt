@@ -18,7 +18,8 @@ class Player(
             field = value.trim()
         }
 
-    val hometown = selectHometown()
+    // 속성 lazy initialization
+    val hometown by lazy { selectHometown() }
 
     // 초기화 블록
     init {
