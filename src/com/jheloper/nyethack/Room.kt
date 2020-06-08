@@ -8,11 +8,12 @@ open class Room(val name: String) {
     open fun load() = "No one came here..."
 }
 
-class TownSquare : Room("Town Square") {
+open class TownSquare : Room("Town Square") {
     override val dangerLevel = super.dangerLevel - 3
     private var bellSound = "Dang!!"
 
-    override fun load() = "All residents welcome your join.\r\n${ringBell()}"
+    // TownSquare의 서브클래스는 load 메서드를 override할 수 없다.
+    final override fun load() = "All residents welcome your join.\r\n${ringBell()}"
 
     private fun ringBell() = "The bell tower announces your arrival. $bellSound"
 }
