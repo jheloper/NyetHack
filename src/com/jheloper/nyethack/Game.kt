@@ -1,5 +1,7 @@
 package com.jheloper.nyethack
 
+import java.lang.IllegalArgumentException
+
 // 파일 수준 변수
 const val MAX_EXPERIENCE: Int = 5000
 
@@ -21,6 +23,10 @@ fun main(args: Array<String>) {
     println(currentRoom.description())
     println(currentRoom.load())
 
+    println("Room type is: ${checkRoomType(currentRoom)}")
+
+    printIsSourceOfBlessings(player)
+
     // 지명 함수 인자를 사용하여 원하는 순서로 인자를 전달할 수 있다.
     printPlayerStatus(player)
 
@@ -29,10 +35,10 @@ fun main(args: Array<String>) {
     performCombat("Hildr", true)
     `**~prolly not a good idea!~**`()
 
-    val myDice = Dice()
-    println(myDice.rolledValue)
-    println(myDice.rolledValue)
-    println(myDice.rolledValue)
+    //    val myDice = Dice()
+    //    println(myDice.rolledValue)
+    //    println(myDice.rolledValue)
+    //    println(myDice.rolledValue)
 }
 
 private fun printPlayerStatus(
@@ -83,4 +89,23 @@ fun performCombat(enemyName: String, isBlessed: Boolean) {
 
 fun `**~prolly not a good idea!~**`() {
     println("this function has backtick function name")
+}
+
+fun checkRoomType(room: Room): String {
+    return when (room) {
+        is TownSquare -> "TownSquare"
+        is Room -> "Room"
+        else -> throw IllegalArgumentException()
+    }
+}
+
+fun printIsSourceOfBlessings(any: Any) {
+
+    val isSourceOfBlessings = if (any is Player) {
+        any.isBlessed
+    } else {
+        (any as Room).name == "Fount of Blessings"
+    }
+
+    println("$any is a source of blessings: $isSourceOfBlessings")
 }
