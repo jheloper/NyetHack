@@ -2,9 +2,6 @@ package com.jheloper.nyethack
 
 import java.lang.IllegalArgumentException
 
-// 파일 수준 변수
-const val MAX_EXPERIENCE: Int = 5000
-
 fun main(args: Array<String>) {
     // 지역 변수
     // var healthPoints = 89
@@ -19,26 +16,14 @@ fun main(args: Array<String>) {
 
     player.castFireBall()
 
-    var currentRoom = TownSquare()
-    println(currentRoom.description())
-    println(currentRoom.load())
-
-    println("Room type is: ${checkRoomType(currentRoom)}")
-
     printIsSourceOfBlessings(player)
 
-    // 지명 함수 인자를 사용하여 원하는 순서로 인자를 전달할 수 있다.
     printPlayerStatus(player)
 
     performCombat()
     performCombat("Ulrich")
     performCombat("Hildr", true)
     `**~prolly not a good idea!~**`()
-
-    //    val myDice = Dice()
-    //    println(myDice.rolledValue)
-    //    println(myDice.rolledValue)
-    //    println(myDice.rolledValue)
 }
 
 private fun printPlayerStatus(

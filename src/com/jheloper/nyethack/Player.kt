@@ -24,7 +24,7 @@ class Player(
     // 초기화 블록
     init {
         require(healthPoints > 0, { "Health Points must be greater than 0." })
-        require(name.isNotBlank(), { "Player must have a name."})
+        require(name.isNotBlank(), { "Player must have a name." })
     }
 
     // 보조 생성자
@@ -41,7 +41,11 @@ class Player(
 
     fun auraColor(): String {
         val auraVisible = isBlessed && healthPoints > 50 || isImmortal
-        return if (auraVisible) selectAuraColor() else "NONE"
+        return if (auraVisible) {
+            selectAuraColor()
+        } else {
+            "NONE"
+        }
     }
 
     private fun selectAuraColor(): String {

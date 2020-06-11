@@ -17,3 +17,11 @@ open class TownSquare : Room("Town Square") {
 
     private fun ringBell() = "The bell tower announces your arrival. $bellSound"
 }
+
+fun main(args: Array<String>) {
+    val currentRoom = TownSquare()
+    println(currentRoom.description())
+    println(currentRoom.load())
+
+    println("Room type is: ${checkRoomType(currentRoom)}")
+}
