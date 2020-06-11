@@ -87,8 +87,10 @@ fun checkRoomType(room: Room): String {
 fun printIsSourceOfBlessings(any: Any) {
 
     val isSourceOfBlessings = if (any is Player) {
+        // 위에서 is 연산자로 타입을 검사했기 때문에 아래에서는 스마트 캐스팅 적용됨
         any.isBlessed
     } else {
+        // as 연산자로 타입 변환
         (any as Room).name == "Fount of Blessings"
     }
 

@@ -24,4 +24,8 @@ fun main(args: Array<String>) {
     println(currentRoom.load())
 
     println("Room type is: ${checkRoomType(currentRoom)}")
+
+    val sourceOfBlessingsRoom = Room("Fount of Blessings")
+
+    printIsSourceOfBlessings(sourceOfBlessingsRoom)
 }
