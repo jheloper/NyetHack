@@ -24,6 +24,8 @@ fun main(args: Array<String>) {
     performCombat("Ulrich")
     performCombat("Hildr", true)
     `**~prolly not a good idea!~**`()
+
+    Game.play()
 }
 
 private fun printPlayerStatus(
@@ -95,4 +97,16 @@ fun printIsSourceOfBlessings(any: Any) {
     }
 
     println("$any is a source of blessings: $isSourceOfBlessings")
+}
+
+object Game {
+    init {
+        println("Welcome!")
+    }
+
+    fun play() {
+        while (true) {
+            // Start Nyethack Game
+        }
+    }
 }
