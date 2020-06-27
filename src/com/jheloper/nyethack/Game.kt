@@ -9,30 +9,19 @@ fun main(args: Array<String>) {
     // val isImmortal = false
     // val race = "gnome"
 
-    val player = Player("madrigal")
+    // val player = Player("madrigal")
     // val player2 = Player("")
     // player.name = "estragon "
     // println(player.name + "TheBrave")
 
-    player.castFireBall()
+    // printIsSourceOfBlessings(player)
 
-    printIsSourceOfBlessings(player)
-
-    printPlayerStatus(player)
-
-    performCombat()
-    performCombat("Ulrich")
-    performCombat("Hildr", true)
-    `**~prolly not a good idea!~**`()
+    // performCombat()
+    // performCombat("Ulrich")
+    // performCombat("Hildr", true)
+    // `**~prolly not a good idea!~**`()
 
     Game.play()
-}
-
-private fun printPlayerStatus(
-    player: Player
-) {
-    println("${player.name} faction is ${player.faction()}")
-    println("(HP: ${player.healthPoints})(Aura: ${player.auraColor()})(Blessed: ${if (player.isBlessed) "YES" else "NO"}) -> ${player.name} ${player.formatHealthStatus()}")
 }
 
 // 단일 표현식 함수. 함수 몸체를 사용하는 대신 대입 연산자 다음에 표현식(실행 코드) 정의.
@@ -100,13 +89,31 @@ fun printIsSourceOfBlessings(any: Any) {
 }
 
 object Game {
+
+    private val player = Player("madrigal")
+    private var currentRoom: Room = TownSquare()
+
     init {
         println("Welcome!")
+        player.castFireBall()
     }
 
     fun play() {
         while (true) {
-            // Start Nyethack Game
+            println(currentRoom.description())
+            println(currentRoom.load())
+
+            printPlayerStatus(player)
+
+            print("> Input command: ")
+            println("Latest command: ${readLine()}")
         }
+    }
+
+    private fun printPlayerStatus(
+        player: Player
+    ) {
+        println("${player.name} faction is ${player.faction()}")
+        println("(HP: ${player.healthPoints})(Aura: ${player.auraColor()})(Blessed: ${if (player.isBlessed) "YES" else "NO"}) -> ${player.name} ${player.formatHealthStatus()}")
     }
 }
