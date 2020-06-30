@@ -116,4 +116,10 @@ object Game {
         println("${player.name} faction is ${player.faction()}")
         println("(HP: ${player.healthPoints})(Aura: ${player.auraColor()})(Blessed: ${if (player.isBlessed) "YES" else "NO"}) -> ${player.name} ${player.formatHealthStatus()}")
     }
+
+    private class GameInput(arg: String?) {
+        private val input = arg ?: ""
+        val command = input.split(" ")[0]
+        val argument = input.split(" ").getOrElse(1, { "" })
+    }
 }
