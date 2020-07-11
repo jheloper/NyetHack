@@ -20,6 +20,7 @@ class Player(
 
     // 속성 lazy initialization
     val hometown by lazy { selectHometown() }
+    var currentPosition = Coordinate(0, 0)
 
     // 초기화 블록
     init {
